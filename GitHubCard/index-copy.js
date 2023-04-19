@@ -40,14 +40,13 @@ const letsGo = cards.appendChild(createCard(res));
 const followersArray = ["tetondan", "dustinmyers", "justsml", "luishrd", "bigknell"];
 
 
-followersArray.forEach( user => {
-    axios.get(`https://api.github.com/users/${user}`)
-    .then( resolve => {
-      cards.appendChild(createCard(resolve));
-    })
-    .catch (error => {
+followersArray.forEach(async user => {
+  try {
+    const resolve = await axios.get(`https://api.github.com/users/${user}`)
+    return cards.appendChild(createCard(resolve));
+  } catch (e) {
     debugger
-    })
+  }
 });
 /*
   STEP 3: Create a function that accepts a single object as its only argument.
