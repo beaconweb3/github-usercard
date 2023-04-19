@@ -1,3 +1,5 @@
+import axios from 'axios';
+
 /*
   STEP 1: using axios, send a GET request to the following URL
     (replacing the placeholder with your Github name):
@@ -11,7 +13,9 @@ axios.get("https://api.github.com/users/beaconweb3")
 
     Skip to STEP 3 (line 34).
 */
-
+  .then( res => {
+    console.log(res);
+  })
 /*
   STEP 4: Pass the data received from Github into your function,
     and append the returned markup to the DOM as a child of .cards
